@@ -32,6 +32,17 @@ const connect = async () => {
   }
 }
 
+app.get('/', function (req, res) {
+  res.sendFile(
+    path.join(__dirname, '../frontend/public/index.html'),
+    function (err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    }
+  )
+})
+
 // middleware
 app.use(express.json())
 app.use(cors(corsOptions))
