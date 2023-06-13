@@ -12,7 +12,6 @@ import bookingRoute from './routes/booking.js'
 
 dotenv.config()
 const app = express()
-const path = require('path')
 const port = process.env.PORT || 8000
 const corsOptions = {
   origin: true,
@@ -33,9 +32,6 @@ const connect = async () => {
   }
 }
 
-const _dirname = path.dirname('')
-const buildPath = path.join(_dirname, '../frontend/build')
-app.use(express.static(buildPath))
 app.get('/', function (req, res) {
   res.sendFile(
     path.join(__dirname, '../frontend/build/index.html'),
